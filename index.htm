@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Timers bomb</title>
+</head>
+<body>
+    <div class="time-display noVisible">00:00</div>
+
+<svg id='text-bomb' width="280" height="120">
+	<path id="curve" d="M 0 120 C 0 120, 130 0, 260 120" fill="transparent" />
+
+	<text class='text'>
+		<textPath fill='#fff' href="#curve" startOffset="10%">
+			R click the Bomb
+		</textPath>
+	</text>
+</svg>
+
+<figure>
+	<img draggable='false' id='bomb' src='https://www.svgrepo.com/show/422654/bomb.svg' alt='svg bomb' />
+</figure>
+
+<div id='water-trap' class='noVisible'>
+	<span id='water-tap'></span>
+	<span id='water-key'></span>
+</div>
+<div id='water'></div>
+
+<div id='dead-message'>
+</div>
+
+<div id='cold-screen' class='noVisible'></div>
+
+<img src='https://www.svgrepo.com/show/474880/key.svg' id='key'></d>
+<div id='electric' class='noVisible'>
+	<span></span>
+	<span></span>
+</div>
+<div id='electric-screen' class='noVisible'></div>
+
+<div id='off-bomb' class='noVisible'>
+	<span>Delete bomb</span>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap");
+:root {
+	--normal-color: #8ecae6;
+	--regular-color: #eedf7a;
+	--danger-color: #950101;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: "Annie Use Your Telescope", cursive;
+	font-weight: 400;
+	font-style: normal;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background: var(--normal-color);
+	overflow: hidden;
+}
+.time-display {
+	position: absolute;
+	top: 0;
+	right: 16px;
+	font-size: 3rem;
+	font-weight: bold;
+	margin-bottom: 0.5vh;
+	cursor: pointer;
+}
+#text-bomb {
+	position: absolute;
+	transform: translateY(-130px) scale(1.4);
+}
+.text {
+	font-size: 2.8rem;
+	font-weight: bold;
+}
+#bomb {
+	width: 100px;
+	aspect-ratio: 1/1;
+	filter: drop-shadow(6px 16px 10px rgba(0, 0, 0, 30%));
+	cursor: pointer;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+}
+@keyframes pulseBomb {
+	to {
+		transform: scale(1.1) translate(-50%, -50%);
+	}
+}
+#water-trap {
+	width: 120px;
+	height: 80px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+#water-tap {
+	width: 100%;
+	height: 100%;
+	background: var(--normal-color);
+	position: absolute;
+	z-index: 2;
+	pointer-select: none;
+	transition: transform 1s;
+	border: 0.5px solid rgba(0, 0, 0, 0.05);
+}
+#water-trap:hover #water-tap {
+	transform: translateX(80%);
+}
+#water-key {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-image: url("https://www.svgrepo.com/show/235475/tap-faucet.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	z-index: 1;
+	cursor: pointer;
+}
+#water {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 255, 50%);
+	z-index: 10;
+	transform: translateY(100%);
+	transition: transform 4s ease;
+}
+#cold-screen {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url("https://cdn.shopify.com/s/files/1/0572/9111/2618/products/il_340x270.1933021285_c3o1_340x270.jpg?v=1667594215");
+	background-size: cover;
+	opacity: 0;
+	z-index: 10;
+}
+@keyframes showCold {
+	to {
+		opacity: 0.7;
+	}
+}
+#key {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	cursor: move;
+}
+#electric {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	position: absolute;
+	bottom: 16px;
+	right: 16px;
+}
+#electric::before {
+	content: "";
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.2);
+	position: absolute;
+	transform: translate(-140%, 80%);
+}
+#electric span {
+	width: 25px;
+	height: 8px;
+	background: rgba(0, 0, 0, 0.2);
+}
+#electric-screen {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: yellow;
+	z-index: 10;
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+#dead-message {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: rgba(0, 0, 0, 70%);
+	z-index: 100;
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 3rem;
+	text-align: center;
+}
+#dead-message > p {
+	font-size: 1.5rem;
+}
+#off-bomb {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: grid;
+	place-content: center;
+	position: absolute;
+	z-index: 10;
+	font-size: 2.5rem;
+	background: rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(4px);
+}
+#off-bomb span {
+	background-color: var(--danger-color);
+	border-radius: 15px;
+	padding: 0 20px;
+	cursor: pointer;
+	box-shadow: 0px 10px 0 #500;
+}
+.noVisible {display: none;opacity: 0;pointer-events: none;
+}
